@@ -5,8 +5,6 @@
 
 using namespace std;
 
-char *linkChar = "https://strathmore.zoom.us/j/91663632505";
-
 void sleep(float seconds)
 {
     clock_t startClock = clock();
