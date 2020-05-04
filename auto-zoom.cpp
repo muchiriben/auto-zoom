@@ -5,6 +5,8 @@
 
 using namespace std;
 
+bool open = false;
+
 void sleep(float seconds)
 {
     clock_t startClock = clock();
@@ -25,22 +27,26 @@ tm *getTime()
 
 void openClass(int hour, int min, int day)
 {
+    //personal timetable setting
     //monday class
-    if (day == 1)
+    if (day == 0)
     {
         if (hour == 8 && min == 15)
         {
-            ShellExecute(NULL, "open", "iexplore", "https://strathmore.zoom.us/j/91663632505", NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, "open", "iexplore", "https://...yourzoomlinkhere", NULL, SW_SHOWNORMAL);
+            open = true;
         }
 
         if (hour == 11 && min == 15)
         {
-            ShellExecute(NULL, "open", "iexplore", "https://strathmore.zoom.us/j/91663632505", NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, "open", "iexplore", "https://...yourzoomlinkhere", NULL, SW_SHOWNORMAL);
+            open = true;
         }
 
         if (hour == 15 && min == 15)
         {
-            ShellExecute(NULL, "open", "iexplore", "https://strathmore.zoom.us/j/91663632505", NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, "open", "iexplore", "https://...yourzoomlinkhere", NULL, SW_SHOWNORMAL);
+            open = true;
         }
     }
 
@@ -49,12 +55,14 @@ void openClass(int hour, int min, int day)
     {
         if (hour == 8 && min == 15)
         {
-            ShellExecute(NULL, "open", "iexplore", "https://strathmore.zoom.us/j/91663632505", NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, "open", "iexplore", "https://...yourzoomlinkhere", NULL, SW_SHOWNORMAL);
+            open = true;
         }
 
         if (hour == 11 && min == 15)
         {
-            ShellExecute(NULL, "open", "iexplore", "https://strathmore.zoom.us/j/91663632505", NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, "open", "iexplore", "https://...yourzoomlinkhere", NULL, SW_SHOWNORMAL);
+            open = true;
         }
     }
 
@@ -63,22 +71,26 @@ void openClass(int hour, int min, int day)
     {
         if (hour == 8 && min == 15)
         {
-            ShellExecute(NULL, "open", "iexplore", "https://strathmore.zoom.us/j/91663632505", NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, "open", "iexplore", "https://...yourzoomlinkhere", NULL, SW_SHOWNORMAL);
+            open = true;
         }
 
         if (hour == 10 && min == 15)
         {
-            ShellExecute(NULL, "open", "iexplore", "https://strathmore.zoom.us/j/91663632505", NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, "open", "iexplore", "https://...yourzoomlinkhere", NULL, SW_SHOWNORMAL);
+            open = true;
         }
 
         if (hour == 13 && min == 15)
         {
-            ShellExecute(NULL, "open", "iexplore", "https://strathmore.zoom.us/j/91663632505", NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, "open", "iexplore", "https://...yourzoomlinkhere", NULL, SW_SHOWNORMAL);
+            open = true;
         }
 
         if (hour == 15 && min == 15)
         {
-            ShellExecute(NULL, "open", "iexplore", "https://strathmore.zoom.us/j/91663632505", NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, "open", "iexplore", "https://...yourzoomlinkhere", NULL, SW_SHOWNORMAL);
+            open = true;
         }
     }
 
@@ -87,17 +99,20 @@ void openClass(int hour, int min, int day)
     {
         if (hour == 8 && min == 15)
         {
-            ShellExecute(NULL, "open", "iexplore", "https://strathmore.zoom.us/j/91663632505", NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, "open", "iexplore", "https://...yourzoomlinkhere", NULL, SW_SHOWNORMAL);
+            open = true;
         }
 
         if (hour == 12 && min == 15)
         {
-            ShellExecute(NULL, "open", "iexplore", "https://strathmore.zoom.us/j/91663632505", NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, "open", "iexplore", "https://...yourzoomlinkhere", NULL, SW_SHOWNORMAL);
+            open = true;
         }
 
         if (hour == 15 && min == 15)
         {
-            ShellExecute(NULL, "open", "iexplore", "https://strathmore.zoom.us/j/91663632505", NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, "open", "iexplore", "https://...yourzoomlinkhere", NULL, SW_SHOWNORMAL);
+            open = true;
         }
     }
 
@@ -106,29 +121,39 @@ void openClass(int hour, int min, int day)
     {
         if (hour == 8 && min == 15)
         {
-            ShellExecute(NULL, "open", "iexplore", "https://strathmore.zoom.us/j/91663632505", NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, "open", "iexplore", "https://...yourzoomlinkhere", NULL, SW_SHOWNORMAL);
+            open = true;
         }
 
         if (hour == 11 && min == 15)
         {
-            ShellExecute(NULL, "open", "iexplore", "https://strathmore.zoom.us/j/91663632505", NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, "open", "iexplore", "https://...yourzoomlinkhere", NULL, SW_SHOWNORMAL);
+            open = true;
         }
     }
 
     //sleep for 10sec
-    sleep(10);
+    sleep(30);
     //close browser(internet explorer)
-    system("taskkill /F /T /IM iexplore.exe");
+    if (open == true)
+    {
+        system("taskkill /F /T /IM iexplore.exe");
+        open = false;
+    }
 }
 
 int main()
 {
-    //get current time and day
-    tm *ltm = getTime();
-    int hour = ltm->tm_hour;
-    int min = ltm->tm_min;
-    int day = ltm->tm_wday;
+    //to run in background(enter .exe shortcut to startup)
+    while (true)
+    {
+        //get current time and day
+        tm *ltm = getTime();
+        int hour = ltm->tm_hour;
+        int min = ltm->tm_min;
+        int day = ltm->tm_wday;
 
-    //open link in browser(internet explorer)
-    openClass(hour, min, day);
+        //open link in browser(internet explorer)
+        openClass(hour, min, day);
+    }
 }
